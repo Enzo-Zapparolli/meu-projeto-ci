@@ -1,0 +1,50 @@
+  208  gh auth login
+  209  sudo apt install curl docker.io
+  210  sudo systemctl start docker
+  211  sudo systemctl enable docker
+  212  sudo usermod -aG docker $USER
+  213  newgrp docker
+  214  curl -O https://raw.githubusercontent.com/nektos/act/master/install.sh
+  215  sudo bash install.sh
+  216  sudo mv ./bin/act /usr/local/bin/act
+  217  act --version
+  218  mkdir Action
+  219  cd Action
+  220  git init
+  221  mkdir -p .github/workflows
+  222  touch .github/workflows/hello.yml
+  223  nano .github/workflows/hello.yml
+  224  git add .
+  225  git commit -m "Adiciona workflow hello.yml"
+  226  git remote add origin https://github.com/seu-usuario/seu-repo.git
+  227  git branch -M main
+  228  git push -u origin main
+  229  git@github.com:Enzo-Zapparolli/exerciciogit.git
+  230  act -l
+  231  act workflow_dispatch -q
+  232  cat .github/workflows/hello.yml
+  233  nano .github/workflows/hello.yml
+  234  cat .github/workflows/hello.yml
+  235  act -l
+  236  act workflow_dispatch -q
+  237  mkdir meu-projeto-ci
+  238  cd meu-projeto-ci
+  239  git init
+  240  touch README.md
+  241  git add .
+  242  git commit -m "Commit inicial"
+  243  mkdir -p .github/workflows
+  244  nano .github/workflows/01-hello-local.yml
+  245  ls .github/workflows
+  246  nano .github/workflows/02-pipeline-principal.yml
+  247  ls .github/workflows
+  248  act -l
+  249  act -n
+  250  act -W .github/workflows/01-hello-local.yml | grep "Iniciando\|Finalizado\|v"
+  251  act -l
+  252  act -W .github/workflows/02-pipeline-principal.yml
+  253  act -W .github/workflows/02-pipeline-principal.yml -P ubuntu-latest=node:slim
+  254  act -W .github/workflows/02-pipeline-principal.yml -j scan-de-seguranca
+  255  nano README.md
+  256  ~/meu-projeto-ci
+  257  history 50 > comandos.txt
